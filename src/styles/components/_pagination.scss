@@ -1,0 +1,37 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    list-style: none;
+    li{
+        margin: 0 5px;
+        a{
+            display: block;
+            padding: 5px 15px;
+            background: $color-primary;
+            color: $color-white;
+            text-decoration: none;
+            border-radius: 10rem;
+            &:hover{
+                background: darken($color-primary, 10%);
+            }
+        }
+    }
+    .active{
+        a{
+        background: $color-secondary;
+        &:hover{
+            background: darken($color-secondary, 10%);
+        }
+        }
+    }
+    .disabled{
+        a{
+        background: $color-grey;
+        &:hover{
+            background: darken($color-grey, 10%);
+        }
+        }
+    }
+}
