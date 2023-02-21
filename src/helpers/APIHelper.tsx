@@ -27,7 +27,7 @@ const getAllCarts = () => {
 	return API.get(`/carts`);
 };
 
-const getCart = (id: string) => {
+const getCart = (id: number) => {
 	return API.get(`/carts/${id}`);
 };
 

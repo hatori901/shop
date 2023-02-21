@@ -74,7 +74,18 @@ export default function Products() {
 				return 0;
 			}
 		);
-		setProducts(sorted);
+		setProducts([...sorted]);
+	};
+
+	const onClickPrice = () => {
+		const sorted = products.sort(
+			(a: { price: number }, b: { price: number }) => {
+				if (a.price < b.price) return -1;
+				if (a.price > b.price) return 1;
+				return 0;
+			}
+		);
+		setProducts([...sorted]);
 	};
 
 	useEffect(() => {
@@ -89,7 +100,6 @@ export default function Products() {
 			setPageCount(Math.ceil(products.length / pageItems));
 			setCurrentPage(products.slice(0, pageItems));
 		}
-		console.log(products);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [products]);
 	return (
@@ -121,7 +131,8 @@ export default function Products() {
 									</th>
 									<th
 										scope="col"
-										className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+										className="px-3 py-3.5 cursor-pointer text-left text-sm font-semibold text-gray-900"
+										onClick={() => onClickPrice()}
 									>
 										Price
 									</th>
